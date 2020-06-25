@@ -1,0 +1,46 @@
+@charset 'UTF-8';
+body{
+    
+}
+h1{
+    margin: 0px auto 0px auto;
+    text-align: center;
+    font: normal 45pt Arial;
+
+}
+div#mostrador{
+    width: 246px;
+    height: 80px;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-radius: 100px;
+    background-color: blueviolet;
+}
+p#idvez{
+    float: left;
+    margin-left: 40px;
+}
+div#tabuleiro{
+    width: 246px;
+    height: 246px;
+    margin: auto;
+    border: 1px solid black;
+
+}
+div.clcasas{
+    border: 1px solid black;
+    width: 80px;
+    height: 80px;
+    float: left;
+}
+div#idold{
+    text-align: center;
+}
+input{
+    background-color: blue;
+    width: 246px;
+    height:40px;
+    font: normal 15pt Arial;
+    border-radius: 100px;
+}

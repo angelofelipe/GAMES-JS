@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="primitive.css">
+    <title>Tic-tac-toe</title>
+</head>
+<body>
+
+    <h1>Tic-tac-toe</h1>
+    <div id="mostrador">   
+            <p id="idvez">Vez do Jogador:</p>
+            <img src="" alt="">
+    </div>
+
+    <div id="tabuleiro">
+        <div id="ida1" class="clcasas" jogador=""></div>
+        <div id="ida2" class="clcasas" jogador=""></div>
+        <div id="ida3" class="clcasas" jogador=""></div>
+
+        <div id="idb1" class="clcasas" jogador=""></div>
+        <div id="idb2" class="clcasas" jogador=""></div>
+        <div id="idb3" class="clcasas" jogador=""></div>
+
+        <div id="idc1" class="clcasas" jogador=""></div>
+        <div id="idc2" class="clcasas" jogador=""></div>
+        <div id="idc3" class="clcasas" jogador=""></div>
+    </div>
+
+    <div id="idold">        
+            <p id="idopen">
+            </p>
+            <input type="button" value="RESET" onclick="resetAll()">
+            <div id="res">      
+            </div>
+    </div>    
+    <script src="primitive.js"></script>
+</body>
+</html>
