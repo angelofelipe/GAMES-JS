@@ -9,5 +9,5 @@
  - Java Script
  - HTML5
  - CSS
- 
-[GAME NOW!](https://bit.ly/GAMES-JS)
+ <br/>
+ <a href='https://bit.ly/GAMES-JS' target='_blank'>GAME NOW!</a>
