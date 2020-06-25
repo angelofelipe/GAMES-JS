@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Jogo da cobrinha</title>
+</head>
+<body>
+	<canvas id="stage" width="1200" height="600"></canvas>
+	<script type="text/javascript">
+		
+		window.onload = function(){
+
+			var stage = document.getElementById('stage');
+			var ctx = stage.getContext("2d");
+			document.addEventListener("keydown", keyPush);
+			document.addEventListener("keyDown2",keyPush);
+			setInterval(game, 80);
+
+			const vel = 1;
+			//P1 velocity and position
+			var vx = vy = 0;
+			var px =10;
+			var py = 10;
+			//P2 velocity and position
+			var vx2 = vy2 = 0;
+			var px2 = 10;
+			var py2 = 1;
+			//Table
+			var tp = 40;
+			var qp = 30;
+			var qp2 = 15 
+			//Apples
+			var ax=1
+			var ay=0;
+			var ax2 = 3;
+			var ay2 = 0;
+			//var ax2=ay2=10;
+			//body P1 and P2
+			var trail = [];
+			tail = 5;
+			var trail2 = [];
+			tail2 = 5;
+
+			function game(){
+				px += vx;
+				py += vy;
+				px2 += vx2;
+				py2 += vy2;
+				//Player 1 position
+				if (px <0) {
+					px = qp-1;
+				}
+				if (px > qp-1) {
+					px = 0;
+				}
+				if (py < 0) {
+					py = qp2-1;
+				}
+				if (py > qp2-1) {
+					py = 0;
+				}
+				//Player 2 position
+				if(px2 < 0){
+					px = qp-1;
+				}
+				if(px2 > qp-1){
+					px2 = 0;
+				}
+				if(py2 < 0){
+					py2 = qp2-1
+				}
+				if(py2 > qp2-1){
+					py2 = 0
+				}
+				//Painting Background
+				ctx.fillStyle = "black";
+				ctx.fillRect(0,0, stage.width, stage.height);
+				//Painting Apples
+				ctx.fillStyle = "red";
+				ctx.fillRect(ax*tp, ay*tp, tp,tp);
+				ctx.fillRect(ax2*tp, ay2*tp, tp, tp);
+				//P1 Head
+				ctx.fillStyle = "white";
+				ctx.fillRect(px*tp, py*tp, tp, tp)
+				//P2 Head
+				ctx.fillStyle = "orange"
+				ctx.fillRect(px2*tp, py2*tp, tp, tp)
+
+
+				for (let i = 1; i < trail.length; i++) {
+					if(i%2 == 1){
+						ctx.fillStyle = "green";
+						ctx.fillRect(trail[i].x*tp, trail[i].y*tp, tp, tp);
+						
+					}else{
+						ctx.fillStyle = "blue"
+						ctx.fillRect(trail[i].x*(tp+0.5), trail[i].y*(tp+0.5), tp-10, tp-10)
+					}
+
+					if (trail[i].x == px && trail[i].y == py)
+					{
+						vx = vy=0;
+						tail =5;
+					}
+				}
+
+				
+				for (let i = 1; i < trail2.length; i++) {
+					if(i%2 == 1){
+						ctx.fillStyle = "gray";
+						ctx.fillRect(trail2[i].x*tp, trail2[i].y*tp, tp, tp);
+						
+					}else{
+						ctx.fillStyle = "yellow"
+						ctx.fillRect(trail2[i].x*(tp+0.5), trail2[i].y*(tp+0.5), tp-10, tp-10)
+					}
+
+					if (trail2[i].x == px && trail2[i].y == py)
+					{
+						vx2 = vy2 =0;
+						tail2 = 5;
+					}
+				}
+				
+
+				//increase P1
+				trail.push({x:px,y:py })
+				while (trail.length > tail) {
+					trail.shift();
+				}
+				//increase P2
+				trail2.push({x:px,y:py })
+				while (trail2.length > tail2) {
+					trail2.shift();
+				}
+				//P1 eat aple
+				if(ax==px && ay==py){
+					tail++;
+					ax = Math.floor(Math.random()*qp);
+					ay = Math.floor(Math.random()*qp2);
+				}else if(ax2==px && ay2==py){
+					tail++;
+					ax2 = Math.floor(Math.random()*qp);
+					ay2 = Math.floor(Math.random()*qp2);
+				}
+				//P2 eat apple
+				if(ax==px2 && ay==py2){
+					tail2++;
+					ax = Math.floor(Math.random()*qp);
+					ay = Math.floor(Math.random()*qp2);
+				}else if(ax2==px2 && ay2==py2){
+					tail2++;
+					ax2 = Math.floor(Math.random()*qp);
+					ay2 = Math.floor(Math.random()*qp2);
+				}
+			}
+
+			function keyPush(event){
+
+				switch (event.keyCode) {
+					case 37: // Left
+						vx = -vel;
+						vy = 0;
+						break;
+					case 38: // up
+						vx = 0;
+						vy = -vel;
+						break;
+					case 39: // right
+						vx = vel;
+						vy = 0;
+						break;
+					case 40: // down
+						vx = 0;
+						vy = vel;
+						break;			
+					default:
+						
+						break;
+				}
+
+			}
+			function keyPush2(event){
+
+				switch (event.keyCode) {
+					case 65: // Left
+						vx = -vel;
+						vy = 0;
+						break;
+					case 87: // up
+						vx = 0;
+						vy = -vel;
+						break;
+					case 68: // right
+						vx = vel;
+						vy = 0;
+						break;
+					case 83: // down
+						vx = 0;
+						vy = vel;
+						break;			
+					default:
+						
+						break;
+				}
+
+			}
+
+		}
+
+	</script>
+	<p><a href="../index.html">HOME</a></p>
+</body>
+</html>
