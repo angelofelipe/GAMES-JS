@@ -11,4 +11,4 @@
  - HTML5
  - CSS
  <br/>
- <a href='https://bit.ly/GAMES-JS' target='_blank'>GAME NOW!</a>
+ [GAME NOW!](https://angelofelipe.github.io/GAMES-JS/)
